@@ -1,1 +1,0 @@
-import{_ as t,v as s,L as o,t as c}from"./entry.BUTLgEJ7.js";const n={},r={class:"container"};function a(e,_){return c(),s("div",r,[o(e.$slots,"default")])}const d=t(n,[["render",a]]);export{d as default};
