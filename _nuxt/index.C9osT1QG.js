@@ -1,0 +1,1 @@
+import{_ as e,v as o,t}from"./entry.CiLa7IXW.js";const s={},c={class:"text"};function r(a,_){return t(),o("div",c," Hola Sergio soy el futuro portfolio de vitor sikets ")}const i=e(s,[["render",r],["__scopeId","data-v-0233cea7"]]);export{i as default};
