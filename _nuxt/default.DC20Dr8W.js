@@ -1,1 +1,0 @@
-import{_ as s,c,a as t,L as a,o}from"./entry.zfNRx49U.js";const r={},d={class:"wrapper"},n={class:"body"};function _(e,l){return o(),c("div",d,[t("div",n,[a(e.$slots,"default",{},void 0,!0)])])}const i=s(r,[["render",_],["__scopeId","data-v-15c0cc95"]]);export{i as default};

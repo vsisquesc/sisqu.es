@@ -1,0 +1,1 @@
+import{n as t,o as s,c as o,p as a,e as c,a as _,_ as p}from"./entry.BByD4D75.js";const d=e=>(a("data-v-de7dfa7f"),e=e(),c(),e),n={class:"content"},i=d(()=>_("h1",{class:"title text"},"WIP",-1)),r=[i],f=t({__name:"wip",setup(e){return(h,l)=>(s(),o("div",n,r))}}),u=p(f,[["__scopeId","data-v-de7dfa7f"]]);export{u as default};
