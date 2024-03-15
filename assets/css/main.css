@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'TT2020';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('~/assets/fonts/TT2020Base-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'TT2020';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('~/assets/fonts/TT2020Base-italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'TT2020';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('~/assets/fonts/TT2020StyleB-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'TT2020';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url('~/assets/fonts/TT2020tyleB-italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'TT2020';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('~/assets/fonts/TT2020StyleD-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'TT2020';
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url('~/assets/fonts/TT2020tyleD-italic.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'TT2020';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('~/assets/fonts/TT2020StyleE-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'TT2020';
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url('~/assets/fonts/TT2020tyleE-italic.woff2') format('woff2');
+}
+ 

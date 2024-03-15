@@ -19,12 +19,17 @@ export default defineNuxtConfig({
     baseURL: "/",
   },
 
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
-  modules: [],
+  modules: [
+    // '@nuxtjs/eslint-module',
+    // https://tailwindcss.nuxtjs.org/
+    '@nuxtjs/tailwindcss',
+  ],
   css: ["~/assets/css/main.css"],
 })

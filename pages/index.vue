@@ -21,6 +21,6 @@
 }
 
 .text{
-  @apply text-3xl font-bold text-black;
+  @apply text-3xl   text-black font-TT2020-G font-semibold;
 }
 </style>
