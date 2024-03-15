@@ -2,9 +2,9 @@
     <div class="content">
       <h1 class="title text">Víctor Sisqués Cortés</h1>
       <div class="links text">
-        <a href="">Projects</a>
-        <a href="">About me</a>
-        <a href="">Tarari</a>
+        <nuxt-link to="/wip">Projects</nuxt-link>
+        <nuxt-link to="/wip">About me</nuxt-link>
+        <nuxt-link to="/wip">Tarari</nuxt-link>
       </div>
       
     </div>
@@ -14,7 +14,7 @@
 definePageMeta({
   layout: 'default',
 });
-</script>
+</script>C
 
 <style lang="postcss" scoped>
 
