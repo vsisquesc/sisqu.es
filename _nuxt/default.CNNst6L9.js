@@ -1,1 +1,0 @@
-import{_ as t,v as a,x as e,L as d,t as o}from"./entry.BZsi_jpP.js";const c={},r={class:"bg-slate-50 md:py-10"},n={class:"default-wrapper"};function _(s,l){return o(),a("div",null,[e("div",r,[e("div",n,[d(s.$slots,"default",{},void 0,!0)])])])}const i=t(c,[["render",_],["__scopeId","data-v-8425f439"]]);export{i as default};
