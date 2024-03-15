@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-  layout: 'default',
+  layout: "default",
 });
 </script>C
 
@@ -22,12 +22,15 @@ definePageMeta({
   @apply flex items-center justify-center w-full h-screen flex-col ;
 }
  
+.title{
+  @apply my-4;
+}
 
 .title,
 .links{
-  @apply flex items-center justify-center flex-col ;
+  @apply flex w-full items-start md:items-center justify-center flex-col ;
 }
 a{
-  @apply hover:italic text-2xl font-bold;
+  @apply hover:italic text-xl md:text-2xl font-bold;
 }
 </style>

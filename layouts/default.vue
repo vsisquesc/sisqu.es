@@ -31,9 +31,9 @@
 
 <style lang="postcss" >
 h1 {
-  @apply text-4xl  font-bold;
+  @apply text-3xl md:text-4xl  font-bold;
 }
 .text {
-  @apply font-TT2020 mix-blend-multiply text-zinc-700
+  @apply font-TT2020 mix-blend-multiply text-zinc-700;
 }
 </style>
