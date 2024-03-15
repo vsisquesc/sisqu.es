@@ -1,26 +1,33 @@
 <template>
-    <div class="wrapper">
-      <div class="text">
-        Hola Sergio soy 
-        <br/>
-        el futuro portfolio de vitor sikets
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        ni centrar un teststo seee
+    <div class="content">
+      <h1 class="title text">Víctor Sisqués Cortés</h1>
+      <div class="links text">
+        <a href="">Projects</a>
+        <a href="">About me</a>
+        <a href="">Tarari</a>
       </div>
+      
     </div>
 </template>
 
-<style lang="postcss" scoped>
-.wrapper{
-  @apply flex items-center justify-center w-full h-screen ;
-}
+<script setup lang="ts">
+definePageMeta({
+  layout: 'default',
+});
+</script>
 
-.text{
-  @apply text-3xl   text-black font-TT2020-G font-semibold;
+<style lang="postcss" scoped>
+
+.content{
+  @apply flex items-center justify-center w-full h-screen flex-col ;
+}
+ 
+
+.title,
+.links{
+  @apply flex items-center justify-center flex-col ;
+}
+a{
+  @apply hover:italic text-2xl font-bold;
 }
 </style>

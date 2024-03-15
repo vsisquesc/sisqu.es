@@ -1,45 +1,39 @@
 <template>
-  <!-- <div class="layout-wrapper"> -->
-  <div>
-    <div class="bg-slate-50 md:py-10">
-      <div class="default-wrapper">
-        <slot />
-      </div>
+  
+  <div class="wrapper">
+ 
+    <div class="body">
+      <slot />
     </div>
+ 
   </div>
 </template>
 
 <script setup lang="ts">
 </script>
 
+
 <style lang="postcss" scoped>
-.default-wrapper {
-  @apply mx-auto flex w-full flex-col items-start
-  justify-start gap-6 px-5 md:pb-4 xl:max-w-[82rem] 2xl:px-0;
+.wrapper{
+ 
+  background-image: url('~/assets/img/periodico_clasico.jpg'), url('~/assets/img/poco_envejecido.jpg'), url('~/assets/img/prensa_fria_limpia.jpg');
+  background-blend-mode: multiply, multiply;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* background-color: #000000; */
 }
-.default-wrapper .wrapper {
-  @apply flex w-full flex-col items-start justify-start
-  gap-8 md:gap-16;
-}
-h1,
-h2 {
-  @apply relative bg-opacity-100  font-semibold text-red-500;
-}
+.header{}
+.body{}
+.footer{}
+</style>
+
+<style lang="postcss" >
 h1 {
-  @apply text-lg md:text-4xl;
+  @apply text-4xl  font-bold;
 }
-h2 {
-  @apply text-xl md:text-3xl;
-}
-h3 {
-  @apply text-xl font-semibold text-slate-600;
-}
-h1::before,
-h2::before {
-  content: '';
-  @apply absolute -bottom-2 left-0 h-[1px] w-12 rounded-md bg-red-500 md:h-[2.5px] md:w-16;
-}
-p {
-  @apply max-w-4xl text-base;
+.text {
+  @apply font-TT2020 mix-blend-multiply text-zinc-700
 }
 </style>
