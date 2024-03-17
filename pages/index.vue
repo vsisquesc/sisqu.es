@@ -79,26 +79,18 @@ const projects: string[] = [
 
 .tab {
   @apply w-[15%] py-2 flex justify-center;
-  background-image: url('~/assets/masks/tab.png');
-  background-size: 100% 100%;
-  box-shadow:0px -10px 5px -2px rgba(0, 0, 0, 0.4);
   position: relative;
 }
 
+.tab:first-child{
+  background-image: url('~/assets/masks/tab_1.png');
+  background-size: 100% 100%; 
+}
 .tab:not(:first-child){
   margin-left: -40px;
+  background-image: url('~/assets/masks/tab_2.png');
+  background-size: 100% 100%; 
 }
-.tab:not(:first-child)::after {
-  bottom: -99%;
-  left: 0;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  content: "";
-  display: block;
-  box-shadow:0px -10px 5px -2px rgba(0, 0, 0, 0.4)
-  
-  /* Ir aumentando el -10px por cada elemento de tab */
-}
+ 
  
 </style>
