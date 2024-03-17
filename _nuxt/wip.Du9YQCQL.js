@@ -1,0 +1,1 @@
+import{d as t,t as s,v as o,C as a,D as c,x as _,_ as d}from"./entry.DBEGjpfb.js";const p=e=>(a("data-v-de7dfa7f"),e=e(),c(),e),n={class:"content"},i=p(()=>_("h1",{class:"title text"},"WIP",-1)),r=[i],f=t({__name:"wip",setup(e){return(h,l)=>(s(),o("div",n,r))}}),u=d(f,[["__scopeId","data-v-de7dfa7f"]]);export{u as default};
