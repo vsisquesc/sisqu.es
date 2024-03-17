@@ -1,12 +1,15 @@
 <template>
-  <div class="content">
+  <div class="content-phone">
+      WIP
+  </div>
+  <div class="content-desktop">
     <transition name="slide-T2B">
       <div v-show="option==='projects'" class="projects">
         <!-- https://image.shutterstock.com/shutterstock/photos/487752658/display_1500/stock-photo-vintage-looking-office-folder-with-numbered-tabs-isolated-on-white-487752658.jpg -->
-        <div class="tab"><p>CSS</p></div>
-        <div class="tab"><p>VISION</p></div>
-        <div class="tab"><p>APPS</p></div>
-        <div class="tab"><p>MISC</p></div>
+        <div v-for="(el, idx) in projects" :key="idx" 
+        class="tab"
+        :style="{ 'z-index': 100-idx}"
+        ><p>{{el}}</p></div>
       </div>
     </transition>
 
@@ -34,13 +37,26 @@
 definePageMeta({
   layout: "default",
 });
-
-
 const option: globalThis.Ref<string | undefined> = ref(undefined);
+
+const projects: string[] = [
+        'CSS',
+        'VISION',
+        'APPS',
+        'MISC',
+]
 </script>
 
 <style lang="postcss" scoped>
-.content{
+
+.content-phone{
+  @apply block lg:hidden;
+}
+.content-desktop{
+  @apply hidden lg:block ;
+}
+
+.content-desktop{
   @apply h-full w-full overflow-hidden;
 }
 
@@ -62,12 +78,16 @@ const option: globalThis.Ref<string | undefined> = ref(undefined);
 }
 
 .tab {
-  @apply w-[15%] px-12 py-2;
-  background-image: url('~/assets/img/tab.jpg');
-  background-size: contain;
+  @apply w-[15%] py-2 flex justify-center;
+  background-image: url('~/assets/masks/tab.png');
+  background-size: 100% 100%;
+  box-shadow:0px -10px 5px -2px rgba(0, 0, 0, 0.4);
   position: relative;
 }
 
+.tab:not(:first-child){
+  margin-left: -40px;
+}
 .tab:not(:first-child)::after {
   bottom: -99%;
   left: 0;
@@ -81,16 +101,4 @@ const option: globalThis.Ref<string | undefined> = ref(undefined);
   /* Ir aumentando el -10px por cada elemento de tab */
 }
  
-/* .tab:nth-child(2)::after  {
-  box-shadow:0px -10px 5px -2px rgba(0, 0, 0, 0.4)
-}
-.tab:nth-child(3)::after  {
-  box-shadow:0px -12px 5px -2px rgba(0, 0, 0, 0.4)
-}
-.tab:nth-child(4)::after  {
-  box-shadow:0px -14px 5px -2px rgba(0, 0, 0, 0.4)
-} */
-
- 
-
 </style>
