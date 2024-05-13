@@ -1,0 +1,1 @@
+import{n as t,o as s,c as o,p as c,e as a,a as _,_ as n}from"./entry.DffZt2oK.js";const p=e=>(c("data-v-4583c429"),e=e(),a(),e),d={class:"content"},i=p(()=>_("h1",{class:"title text"},"HOLa",-1)),r=[i],h=t({__name:"index",setup(e){return(l,m)=>(s(),o("div",d,r))}}),f=n(h,[["__scopeId","data-v-4583c429"]]);export{f as default};

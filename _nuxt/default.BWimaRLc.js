@@ -1,1 +1,0 @@
-import{_ as t,v as a,x as s,R as o,L as c,t as d,C as r,D as n}from"./entry.DBEGjpfb.js";const _={},l=e=>(r("data-v-59810d9e"),e=e(),n(),e),p=l(()=>s("div",{class:"bg"},null,-1)),u={class:"wrapper"};function f(e,i){return d(),a(c,null,[p,s("div",u,[o(e.$slots,"default",{},void 0,!0)])],64)}const m=t(_,[["render",f],["__scopeId","data-v-59810d9e"]]);export{m as default};
