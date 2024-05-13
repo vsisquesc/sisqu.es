@@ -19,7 +19,6 @@ export default defineNuxtConfig({
     baseURL: "/",
   },
 
-
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -29,7 +28,8 @@ export default defineNuxtConfig({
   modules: [
     // '@nuxtjs/eslint-module',
     // https://tailwindcss.nuxtjs.org/
-    '@nuxtjs/tailwindcss',
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/i18n",
   ],
   css: ["~/assets/css/main.css"],
 })

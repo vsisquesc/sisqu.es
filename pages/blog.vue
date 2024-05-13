@@ -1,6 +1,7 @@
 <template>
     <div class="content">
-      <h1 class="title text">HOLa</h1>
+      <h1 class="title text">WIP</h1>
+ 
     </div>
 </template>
 
