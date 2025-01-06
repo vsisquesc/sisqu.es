@@ -2,11 +2,11 @@
     <div class="wrapper">
         <h1 class="title text">WIP</h1>
         <!--
-Yo (scrol que gire el modelo de gondo)
-Blog (subo cosas como estaticos)
-Musica (recomendaciones)
-Playground (chorradas, juegoes, herramientas)
-Porrtfolio 
+    Yo (scrol que gire el modelo de gondo)
+    Blog (subo cosas como estaticos)
+    Musica (recomendaciones)
+    Playground (chorradas, juegoes, herramientas)
+    Porrtfolio 
 -->
     </div>
 </template>
