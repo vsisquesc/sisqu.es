@@ -1,7 +1,7 @@
 <template>
     <div class="header-wrapper">
         <h1 class="tilt">VÍCTOR SISQUÉS CORTÉS</h1>
-        <Button @click="iterateMode">
+        <Button @mousedown="iterateMode">
             <Icon
                 v-if="colorMode.value == 'light'"
                 name="material-symbols:dark-mode"

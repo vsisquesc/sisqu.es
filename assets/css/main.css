@@ -19,7 +19,6 @@
     --color-background: #fff;
     --color-text: #000;
     --color-border: #000;
-    --color-shadow: rgba(from var(--color-border) r g b / 30%);
 }
 
 .dark-mode {

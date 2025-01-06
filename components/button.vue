@@ -13,30 +13,10 @@
 }
 
 .button {
-    box-shadow: 0px 0px 4px 4px var(--color-shadow);
-    -webkit-box-shadow: 0px 0px 4px 4px var(--color-shadow);
-    -moz-box-shadow: 0px 0px 4px 4px var(--color-shadow);
-    filter: brightness(1.05);
+    background-color: rgb(from var(--color-border) r g b / 0.2);
 }
 
-.button:active {
-    box-shadow: inset 0px 0px 4px 2px var(--color-shadow);
-    -webkit-box-shadow: inset 0px 0px 4px 2px var(--color-shadow);
-    -moz-box-shadow: inset 0px 0px 4px 2px var(--color-shadow);
-    filter: brightness(1.1);
-}
-
-.dark-mode .button {
-    box-shadow: inset 0px 0px 8px 2px var(--color-shadow);
-    -webkit-box-shadow: inset 0px 0px 8px 2px var(--color-shadow);
-    -moz-box-shadow: inset 0px 0px 8px 2px var(--color-shadow);
-    filter: brightness(2);
-}
-
-.dark-mode .button:active {
-    box-shadow: inset 0px 0px 4px 2px var(--color-shadow);
-    -webkit-box-shadow: inset 0px 0px 4px 2px var(--color-shadow);
-    -moz-box-shadow: inset 0px 0px 4px 2px var(--color-shadow);
-    filter: brightness(1);
-}
+/* .button:active {
+    background-color: rgb(from var(--color-border) r g b / 0.1);
+} */
 </style>
