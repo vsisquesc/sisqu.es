@@ -1,1 +1,0 @@
-import{n as t,o,c as s,p as c,e as a,a as _,_ as d}from"./entry.DffZt2oK.js";const n=e=>(c("data-v-bcdbfdea"),e=e(),a(),e),p={class:"content"},r=n(()=>_("h1",{class:"title text"},"WIP",-1)),i=[r],l=t({__name:"blog",setup(e){return(f,h)=>(o(),s("div",p,i))}}),m=d(l,[["__scopeId","data-v-bcdbfdea"]]);export{m as default};

@@ -1,0 +1,1 @@
+import{d as t,v as s,x as o,t as a,_}from"./CcmwHjJs.js";const n={class:"content"},c=t({__name:"about_me",setup(r){return(p,e)=>(a(),s("div",n,e[0]||(e[0]=[o("h1",{class:"title text"},"WIP",-1)])))}}),m=_(c,[["__scopeId","data-v-fe712a13"]]);export{m as default};

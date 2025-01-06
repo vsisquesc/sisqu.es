@@ -1,0 +1,1 @@
+import{d as t,v as s,x as a,t as o,_ as n}from"./CcmwHjJs.js";const r={class:"wrapper"},_=t({__name:"index",setup(d){return(c,e)=>(o(),s("div",r,e[0]||(e[0]=[a("h1",{class:"title text"},"WIP",-1)])))}}),i=n(_,[["__scopeId","data-v-9505d1ad"]]);export{i as default};
