@@ -1,6 +1,56 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    experimental: {
+        payloadExtraction: true,
+    },
+    imports: {
+        dirs: ["types/*.ts"],
+    },
+    devServer: {
+        port: 3000,
+    },
+    compatibilityDate: "2024-04-03",
+    devtools: { enabled: true },
     ssr: false,
+    css: ["~/assets/css/main.css"],
+    postcss: {
+        plugins: {
+            tailwindcss: {},
+            autoprefixer: {},
+        },
+    },
+
+    plugins: ["~/plugins/eventBus.ts", "~/plugins/api.ts"],
+    modules: [
+        // https://tailwindcss.nuxtjs.org/
+        "@nuxtjs/tailwindcss",
+        "@nuxtjs/i18n",
+        "@nuxtjs/color-mode",
+        "@pinia/nuxt",
+        "@nuxt/icon",
+    ],
+
+    i18n: {
+        compilation: {
+            strictMessage: false,
+            // escapeHtml: true,
+        },
+        // SEO recommendations
+        baseUrl: "localhost",
+        locales: [
+            { code: "es", iso: "es-ES", name: "Español", file: "es.json" },
+            { code: "en", iso: "en-GB", name: "English", file: "en.json" },
+        ],
+        lazy: true,
+        langDir: "lang/",
+        strategy: "prefix_except_default",
+        defaultLocale: "es",
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: "i18n_redirected",
+            redirectOn: "root", // SEO recommended
+        },
+    },
 
     app: {
         head: {
@@ -23,16 +73,6 @@ export default defineNuxtConfig({
         baseURL: "/",
     },
 
-    postcss: {
-        plugins: {
-            tailwindcss: {},
-            autoprefixer: {},
-        },
-    },
-
-    modules: [// https://tailwindcss.nuxtjs.org/
-    "@nuxtjs/tailwindcss", "@nuxtjs/i18n", "@nuxtjs/color-mode", "@pinia/nuxt", "@nuxt/icon"],
-
     colorMode: {
         preference: "system",
         fallback: "light",
@@ -44,7 +84,4 @@ export default defineNuxtConfig({
         storage: "localStorage", // or 'sessionStorage' or 'cookie'
         storageKey: "nuxt-color-mode",
     },
-
-    css: ["~/assets/css/main.css"],
-    compatibilityDate: "2025-01-06",
 })

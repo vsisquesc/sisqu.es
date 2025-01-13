@@ -8,10 +8,13 @@
     Playground (chorradas, juegoes, herramientas)
     Porrtfolio 
 -->
+        <Music />
     </div>
 </template>
 
 <script setup lang="ts">
+import Music from "~/components/music.vue"
+
 definePageMeta({
     layout: "default",
 })
