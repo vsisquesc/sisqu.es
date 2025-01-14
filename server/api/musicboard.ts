@@ -10,22 +10,29 @@ export default defineEventHandler(async (event) => {
             query.parameters as string
         ) as MB_params
 
-        const data: MusicBoardDTO | undefined = await fetchApiResponse(
-            pageUrl,
-            apiEndpoint,
-            params
-        )
+        const minRating = params.min_rating
+
+        const data: MusicBoardDTO | undefined = await $fetch(apiEndpoint, {
+            method: "get",
+            params: params,
+        }).catch((err) => {
+            throw Error(err)
+        })
+
+        // const data: MusicBoardDTO | undefined = await fetchApiResponse(
+        //     pageUrl,
+        //     apiEndpoint,
+        //     params
+        // )
         if (data == undefined) {
             throw Error("Data is empty")
         }
+        if (minRating != undefined) {
+            data.results = data.results.filter(
+                (e) => e.rating.rating >= minRating * 2
+            )
+        }
         return data
-
-        // return {
-        //     ok: true,
-        //     code: 200,
-        //     message: undefined,
-        //     data: new MusicBoard(data as MusicBoardDTO),
-        // } as NetworkResponse<MusicBoard>
     } catch (error) {
         throw createError({
             statusCode: 500,

@@ -11,6 +11,7 @@ export class MusicBoardService extends Service<MusicBoard, MusicBoardDTO> {
         limit: 16,
         offset: 0,
         order_by: "-created_at",
+        creator: "55a815b3-fb1f-4c3a-8da8-029833dbf071",
         speedup: true,
     }
 
@@ -22,6 +23,7 @@ export class MusicBoardService extends Service<MusicBoard, MusicBoardDTO> {
         const $api = Service.useApi()
 
         const endpoint = "/api/musicboard"
+        const params = { ...this.defaultParams, ...inParams }
 
         const res: NetworkResponse<MusicBoardDTO> = await $api<MusicBoardDTO>(
             endpoint,
@@ -30,7 +32,7 @@ export class MusicBoardService extends Service<MusicBoard, MusicBoardDTO> {
                 params: {
                     pageUrl: this.pageURL,
                     apiEndpoint: `${this.endpoint}/${this.review_url}`,
-                    parameters: inParams,
+                    parameters: params,
                 },
             }
         )

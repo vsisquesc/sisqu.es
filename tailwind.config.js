@@ -12,6 +12,7 @@ module.exports = {
   theme: {
     extend: {
  
+   
       boxShadow: {
         button: '2px 2px 4px 1px #00000080',
         buttonPress: 'inset 1px 1px 1px 1px #00000080;',

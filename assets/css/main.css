@@ -33,6 +33,18 @@
     border-color: var(--color-border);
 }
 
+.grayscale-filter {
+    @apply brightness-[125%] grayscale contrast-[1000%];
+}
+
+.backdrop-grayscale-filter {
+    @apply backdrop-brightness-[125%] backdrop-grayscale backdrop-contrast-[1000%];
+}
+
+.dark-mode .backdrop-grayscale-filter {
+    @apply invert;
+}
+
 h1 {
     @apply font-[1000] text-4xl;
 }

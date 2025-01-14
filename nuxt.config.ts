@@ -21,14 +21,8 @@ export default defineNuxtConfig({
     },
 
     plugins: ["~/plugins/eventBus.ts", "~/plugins/api.ts"],
-    modules: [
-        // https://tailwindcss.nuxtjs.org/
-        "@nuxtjs/tailwindcss",
-        "@nuxtjs/i18n",
-        "@nuxtjs/color-mode",
-        "@pinia/nuxt",
-        "@nuxt/icon",
-    ],
+    modules: [// https://tailwindcss.nuxtjs.org/
+    "@nuxtjs/tailwindcss", "@nuxtjs/i18n", "@nuxtjs/color-mode", "@pinia/nuxt", "@nuxt/icon", "@nuxt/image"],
 
     i18n: {
         compilation: {

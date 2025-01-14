@@ -1,18 +1,15 @@
 <template>
-    {{ music_board_data }}
+    <div class="reviews">
+        <MusicBoard-Entry
+            v-for="review in music_board_data?.results"
+            :rating="review.rating"
+        />
+    </div>
 </template>
 
 <script setup lang="ts">
 import type { MusicBoard } from "~/entities"
 import { MusicBoardService } from "~/services"
-
-// ---------- Imports ----------
-
-// ---------- Plugins ----------
-const { $pluginName } = useNuxtApp()
-
-// ---------- Emits ----------
-const emit = defineEmits([])
 
 // ---------- References ----------
 const music_board_data: globalThis.Ref<MusicBoard | undefined> = ref(undefined)
@@ -29,7 +26,8 @@ const { data, status, error, refresh, clear } = useAsyncData(
 
     async function () {
         const res: NetworkResponse<MusicBoard> = await service_musicBoard.Get({
-            limit: 1,
+            order_by: "-rating__rating",
+            min_rating: 4,
         })
 
         if (!res.ok) {
@@ -43,4 +41,8 @@ const { data, status, error, refresh, clear } = useAsyncData(
 // ---------- Methods ----------
 </script>
 
-<style lang="postcss" scoped></style>
+<style lang="postcss" scoped>
+.reviews {
+    @apply grid grid-cols-1 sm:grid-cols-4 w-full h-auto  gap-2 sm:gap-4;
+}
+</style>

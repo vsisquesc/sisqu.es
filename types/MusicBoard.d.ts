@@ -15,6 +15,7 @@ type MB_params = {
     record_type?: string
     private?: boolean
     speedup?: boolean
+    min_rating?: number
 }
 
 type MusicBoardDTO = {
