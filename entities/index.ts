@@ -1,3 +1,5 @@
+export { MusicBoardReviews } from "./MusicBoard/MusicBoardReviews"
+export { MusicBoardRatings } from "./MusicBoard/MusicBoardRatings"
 export { MusicBoard } from "./MusicBoard/MusicBoard"
 export { Review } from "./MusicBoard/Review"
 export { Rating } from "./MusicBoard/Rating"

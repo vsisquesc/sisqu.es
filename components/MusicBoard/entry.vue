@@ -3,12 +3,12 @@
         <nuxt-img class="image" :src="rating.content.cover_large" />
 
         <div class="info backdrop-grayscale-filter" v-if="info">
-            <div class="title">
+            <div class="justify-start items-start">
                 <div class="text">
                     {{ rating.content.title }}
                 </div>
             </div>
-            <div class="artist">
+            <div class="justify-end items-end">
                 <div class="text">
                     {{ rating.content.artist.name }}
                 </div>
@@ -18,9 +18,9 @@
 </template>
 
 <script setup lang="ts">
+import type { Rating } from "~/entities"
+
 // ---------- Imports ----------
-import type { MusicBoard, Rating } from "~/entities"
-import { MusicBoardService } from "~/services"
 
 // ---------- Props ----------
 interface Props {
@@ -49,20 +49,11 @@ const info: globalThis.Ref<boolean> = ref(false)
     @apply absolute w-full h-full flex flex-col  items-start justify-center;
 }
 
-.info .title,
-.info .artist {
-    @apply text-black h-full w-full flex;
-}
-
-.info .title {
-    @apply justify-start items-start;
-}
-
-.info .artist {
-    @apply justify-end items-end;
+.info > div {
+    @apply h-full w-full flex;
 }
 
 .text {
-    @apply bg-white px-2;
+    @apply bg-white px-2 text-black;
 }
 </style>

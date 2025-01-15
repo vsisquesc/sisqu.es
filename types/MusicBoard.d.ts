@@ -18,10 +18,17 @@ type MB_params = {
     min_rating?: number
 }
 
-type MusicBoardDTO = {
+type MusicBoardDTO = MusicBoardRatingsDTO | MusicBoardReviewsDTO
+
+type MusicBoardReviewsDTO = {
     next?: string
     previous?: string
     results: ReviewDTO[]
+}
+type MusicBoardRatingsDTO = {
+    next?: string
+    previous?: string
+    results: RatingDTO[]
 }
 
 type ReviewDTO = {

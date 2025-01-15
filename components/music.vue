@@ -1,22 +1,24 @@
 <template>
     <div class="reviews">
         <MusicBoard-Entry
-            v-for="review in music_board_data?.results"
-            :rating="review.rating"
+            v-for="rating in music_board_data?.results"
+            :rating="rating"
         />
     </div>
 </template>
 
 <script setup lang="ts">
-import type { MusicBoard } from "~/entities"
-import { MusicBoardService } from "~/services"
+import type { MusicBoardRatings } from "~/entities"
+import { MusicBoardRatingsService, MusicBoardReviewsService } from "~/services"
 
 // ---------- References ----------
-const music_board_data: globalThis.Ref<MusicBoard | undefined> = ref(undefined)
+const music_board_data: globalThis.Ref<MusicBoardRatings | undefined> =
+    ref(undefined)
 const next: globalThis.Ref<string> = ref("")
 
 // ---------- Services ----------
-const service_musicBoard = new MusicBoardService()
+const service_musicBoard_reviews = new MusicBoardReviewsService()
+const service_musicBoard_ratings = new MusicBoardRatingsService()
 
 // ---------- Variables ----------
 
@@ -25,10 +27,11 @@ const { data, status, error, refresh, clear } = useAsyncData(
     "get_musicboard_data",
 
     async function () {
-        const res: NetworkResponse<MusicBoard> = await service_musicBoard.Get({
-            order_by: "-rating__rating",
-            min_rating: 4,
-        })
+        const res: NetworkResponse<MusicBoardRatings> =
+            await service_musicBoard_ratings.Get({
+                order_by: "-rating__rating",
+                min_rating: 4,
+            })
 
         if (!res.ok) {
             throw Error(res.message)
