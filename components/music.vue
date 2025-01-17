@@ -8,6 +8,7 @@
 </template>
 
 <script setup lang="ts">
+// ---------- Imports ----------
 import type { MusicBoardRatings } from "~/entities"
 import { MusicBoardRatingsService, MusicBoardReviewsService } from "~/services"
 
@@ -19,8 +20,6 @@ const next: globalThis.Ref<string> = ref("")
 // ---------- Services ----------
 const service_musicBoard_reviews = new MusicBoardReviewsService()
 const service_musicBoard_ratings = new MusicBoardRatingsService()
-
-// ---------- Variables ----------
 
 // ---------- Data Fetching ----------
 const { data, status, error, refresh, clear } = useAsyncData(
