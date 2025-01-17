@@ -15,6 +15,31 @@
         <h1 class="title text">WIP</h1>
         <h1 class="title text">WIP</h1>
         <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <Photos />
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
+        <h1 class="title text">WIP</h1>
         <!--
     Yo (scrol que gire el modelo de gondo)
     Blog (subo cosas como estaticos)
@@ -22,7 +47,8 @@
     Playground (chorradas, juegoes, herramientas)
     Porrtfolio 
 -->
-        <Music />
+
+        <!-- <Music /> -->
     </div>
 </template>
 

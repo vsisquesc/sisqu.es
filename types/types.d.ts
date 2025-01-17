@@ -5,6 +5,13 @@ type NetworkResponse<T> = {
     data?: T
 }
 
+type ImageScroller = {
+    src: string
+    width: number
+    top: number
+    left: number
+}
+
 type DTO =
     | MusicBoardDTO
     | ReviewDTO

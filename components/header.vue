@@ -30,7 +30,7 @@ const colorMode = useColorMode()
 const modes = ["light", "dark"]
 
 const showTitle: globalThis.Ref<boolean> = ref(true)
-onMounted(() => {
+onBeforeMount(() => {
     if (import.meta.client) {
         handleScroll()
         window.addEventListener("scroll", handleScroll)

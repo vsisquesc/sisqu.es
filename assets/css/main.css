@@ -34,7 +34,7 @@
 }
 
 .grayscale-filter {
-    @apply brightness-[125%] grayscale contrast-[1000%];
+    @apply brightness-[155%] grayscale contrast-[1000%];
 }
 
 .backdrop-grayscale-filter {

@@ -30,7 +30,7 @@ const { data, status, error, refresh, clear } = useAsyncData(
         const res: NetworkResponse<MusicBoardRatings> =
             await service_musicBoard_ratings.Get({
                 order_by: "-rating__rating",
-                min_rating: 4,
+                min_rating: 4.5,
             })
 
         if (!res.ok) {
