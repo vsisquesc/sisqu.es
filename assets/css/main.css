@@ -41,12 +41,17 @@
     @apply backdrop-brightness-[125%] backdrop-grayscale backdrop-contrast-[1000%];
 }
 
+.dark-mode .grayscale-filter,
 .dark-mode .backdrop-grayscale-filter {
     @apply invert;
 }
 
 h1 {
     @apply font-[1000] text-4xl;
+}
+
+.big {
+    @apply font-[1000] text-6xl;
 }
 
 .tilt {

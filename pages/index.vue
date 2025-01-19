@@ -1,45 +1,10 @@
 <template>
     <div class="wrapper">
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
+        <!-- <Artist /> -->
+        <Wip />
         <Photos />
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
-        <h1 class="title text">WIP</h1>
+        <Wip />
+
         <!--
     Yo (scrol que gire el modelo de gondo)
     Blog (subo cosas como estaticos)
