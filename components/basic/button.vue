@@ -12,6 +12,6 @@
 }
 
 .button {
-    background-color: rgb(from var(--color-border) r g b / 1);
+    background-color: var(--color-border);
 }
 </style>

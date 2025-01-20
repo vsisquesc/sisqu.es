@@ -1,11 +1,21 @@
 <template>
-    <div class="entry" @mouseover="info = true" @mouseleave="info = false">
+    <div
+        class="entry"
+        :class="{ 'text-sm': small }"
+        @mouseover="info = true"
+        @mouseleave="info = false"
+    >
         <nuxt-img class="image" :src="rating.content.cover_large" />
 
         <div class="info backdrop-grayscale-filter" v-if="info">
             <div class="justify-start items-start">
                 <div class="text">
                     {{ rating.content.title }}
+                </div>
+            </div>
+            <div v-if="small" class="justify-center items-center">
+                <div class="text">
+                    {{ rating.rating }}
                 </div>
             </div>
             <div class="justify-end items-end">
@@ -25,8 +35,11 @@ import type { Rating } from "~/entities"
 // ---------- Props ----------
 interface Props {
     rating: Rating
+    small?: boolean
 }
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+    small: false,
+})
 
 // ---------- References ----------
 const info: globalThis.Ref<boolean> = ref(false)

@@ -2,6 +2,7 @@ import type { Entity } from "~/entities/Entity"
 
 export abstract class Service<T extends Entity, R> {
     protected abstract endpoint: string
+    protected abstract apiEndpoint: string
 
     // Método abstracto para transformar datos
     protected abstract transform(data: R): T

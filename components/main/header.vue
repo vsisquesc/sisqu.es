@@ -1,15 +1,18 @@
 <template>
     <div class="header-wrapper">
-        <h1 v-if="showTitle" class="tilt">VÍCTOR SISQUÉS CORTÉS</h1>
-        <Button v-else @mousedown="scrollUp">
+        <nuxt-Link v-if="showTitle" to="/"
+            ><h1 class="tilt">SISQU.ES</h1>
+        </nuxt-Link>
+
+        <Basic-Button v-else @mousedown="scrollUp">
             <Icon
                 name="material-symbols:arrow-upward-rounded"
                 :style="
                     colorMode.value != 'light' ? 'color: black' : 'color:white'
                 "
             />
-        </Button>
-        <Button @mousedown="iterateMode">
+        </Basic-Button>
+        <Basic-Button @mousedown="iterateMode">
             <Icon
                 v-if="colorMode.value != 'light'"
                 name="material-symbols:light-mode"
@@ -20,7 +23,7 @@
                 name="material-symbols:dark-mode"
                 style="color: white"
             />
-        </Button>
+        </Basic-Button>
     </div>
 </template>
 
@@ -64,6 +67,7 @@ function scrollUp() {
 
 <style lang="postcss">
 .header-wrapper {
+    background-color: var(--color-background);
     @apply fixed flex w-full justify-between px-2 h-16 items-center z-10;
 }
 </style>

@@ -6,6 +6,7 @@ export class MusicBoardService extends Service<MusicBoard, MusicBoardDTO> {
         "https://musicboard.app/vsc/reviews?content_type=album&order_by=-created_at"
 
     endpoint = "https://api.musicboard.app/v2"
+    apiEndpoint = ""
 
     protected override transform(data: MusicBoardDTO): MusicBoard {
         throw new Error("Method not implemented.")
@@ -32,7 +33,7 @@ export class MusicBoardService extends Service<MusicBoard, MusicBoardDTO> {
                 method: "get",
                 params: {
                     pageUrl: this.pageURL,
-                    apiEndpoint: `${this.endpoint}/${url}`,
+                    apiEndpoint: `${this.endpoint}/${this.apiEndpoint}`,
                     parameters: params,
                 },
             })

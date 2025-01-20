@@ -1,4 +1,5 @@
 import { Entity } from "../Entity"
+import type { Background } from "./Background"
 import type { Creator } from "./Creator"
 
 export class Artist extends Entity {
