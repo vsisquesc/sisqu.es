@@ -39,13 +39,12 @@ export default defineNuxtConfig({
         // SEO recommendations
         baseUrl: "localhost",
         locales: [
-            { code: "es", iso: "es-ES", name: "Español", file: "es.json" },
             { code: "en", iso: "en-GB", name: "English", file: "en.json" },
         ],
         lazy: true,
         langDir: "lang/",
         strategy: "prefix_except_default",
-        defaultLocale: "es",
+        defaultLocale: "en",
         detectBrowserLanguage: {
             useCookie: true,
             cookieKey: "i18n_redirected",

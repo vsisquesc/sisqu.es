@@ -1,1 +1,11 @@
-{}
+{
+    "links": {
+        "photos": "photos",
+        "music": "music"
+    },
+    "music": {
+        "artists": "Top Artists",
+        "albums": "Top Albums",
+        "recent": "Recently Listened"
+    }
+}

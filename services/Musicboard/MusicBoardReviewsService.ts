@@ -3,6 +3,7 @@ import { Service } from "../Service"
 import { MusicBoardService } from "./MusicBoardService"
 
 export class MusicBoardReviewsService extends MusicBoardService {
+    override apiEndpoint = "reviews/"
     private url = "reviews/"
 
     protected override transform(

@@ -41,7 +41,7 @@ onMounted(() => {
     if (import.meta.client) {
         window.addEventListener("scroll", handleScroll)
     }
-    const height = 100 + (images.length - 1) * 40
+    const height = 100 + (images.length - 1) * 60
     ImagesContainer.value!.style.height = `${height}vh`
 
     imageData.value = images.map(initImage)

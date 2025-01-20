@@ -1,7 +1,7 @@
 <template>
     <div class="content">
-        <Header />
-        <div class="z-0 h-full w-full">
+        <Main-Header />
+        <div class="page-wrapper">
             <slot />
         </div>
     </div>

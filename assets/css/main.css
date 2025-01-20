@@ -47,14 +47,39 @@
 }
 
 h1 {
-    @apply font-[1000] text-4xl;
+    @apply font-[1000] text-6xl;
 }
 
 .big {
     @apply font-[1000] text-6xl;
 }
 
+.box-text {
+    @apply px-8;
+    background-color: var(--color-background);
+}
+
+.title {
+    @apply big tilt;
+}
+
+.boxed-title {
+    @apply big tilt box-text;
+}
+
+.link {
+    @apply big tilt uppercase box-text  hover:invert cursor-pointer;
+}
+
 .tilt {
     @apply italic;
     transform: skew(-9deg);
+}
+
+.page-wrapper {
+    @apply z-0 h-full w-full pt-16 flex items-center justify-center flex-col gap-4;
+}
+
+.component-wrapper {
+    @apply flex items-center justify-center w-full h-full flex-col gap-4;
 }
