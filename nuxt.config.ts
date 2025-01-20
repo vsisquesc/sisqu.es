@@ -54,7 +54,7 @@ export default defineNuxtConfig({
 
     app: {
         head: {
-            title: "vsisquesc Portfolio",
+            title: "SISQU.ES",
             meta: [
                 { charset: "utf-8" },
                 {
@@ -64,11 +64,11 @@ export default defineNuxtConfig({
                 {
                     hid: "description",
                     name: "description",
-                    content: "Víctor Sisqués' portfolio",
+                    content: "SISQU.ES",
                 },
                 { name: "format-detection", content: "telephone=no" },
             ],
-            link: [{ rel: "icon", type: "image/svg", href: "/favicon.svg" }],
+            link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
         },
         baseURL: "/",
     },
