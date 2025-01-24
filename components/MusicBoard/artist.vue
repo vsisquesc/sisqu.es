@@ -51,5 +51,6 @@ const info: globalThis.Ref<boolean> = ref(false)
 
 .photo {
     @apply h-full w-3/5 right-0;
+    object-fit: cover;
 }
 </style>

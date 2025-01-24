@@ -3,8 +3,8 @@
         <div class="title">{{ $t("music.albums") }}</div>
         <div class="reviews">
             <MusicBoard-Album
-                v-for="rating in music_board_data?.results"
-                :rating="rating"
+                v-for="review in music_board_data?.results"
+                :rating="review.rating"
             />
         </div>
     </div>
@@ -12,11 +12,11 @@
 
 <script setup lang="ts">
 // ---------- Imports ----------
-import type { MusicBoardRatings } from "~/entities"
+import type { MusicBoardRatings, MusicBoardReviews } from "~/entities"
 import { MusicBoardRatingsService, MusicBoardReviewsService } from "~/services"
 
 // ---------- References ----------
-const music_board_data: globalThis.Ref<MusicBoardRatings | undefined> =
+const music_board_data: globalThis.Ref<MusicBoardReviews | undefined> =
     ref(undefined)
 const next: globalThis.Ref<string> = ref("")
 
@@ -29,10 +29,11 @@ const { data, status, error, refresh, clear } = useAsyncData(
     "get_musicboard_data",
 
     async function () {
-        const res: NetworkResponse<MusicBoardRatings> =
-            await service_musicBoard_ratings.Get({
+        const res: NetworkResponse<MusicBoardReviews> =
+            await service_musicBoard_reviews.Get({
                 order_by: "-rating__rating",
                 min_rating: 4.5,
+                pinned: true,
             })
 
         if (!res.ok) {
