@@ -28,15 +28,17 @@ export class MusicBoardService extends Service<MusicBoard, MusicBoardDTO> {
         const endpoint = "/api/musicboard"
         const params = { ...this.defaultParams, ...inParams }
 
-        const res: NetworkResponse<MusicBoardRatingsDTO> =
-            await $api<MusicBoardRatingsDTO>(`${endpoint}/${url}`, {
+        const res: NetworkResponse<MusicBoardDTO> = await $api<MusicBoardDTO>(
+            `${endpoint}/${url}`,
+            {
                 method: "get",
                 params: {
                     pageUrl: this.pageURL,
                     apiEndpoint: `${this.endpoint}/${this.apiEndpoint}`,
                     parameters: params,
                 },
-            })
+            }
+        )
         //@ts-ignore
         const output: NetworkResponse<MusicBoard> = res
         output.data = res.ok ? this.transform(res.data!) : undefined

@@ -12,6 +12,8 @@ export default defineEventHandler(async (event) => {
 
         const minRating = params.min_rating
 
+        params.content_type = "album"
+
         const data: MusicBoardReviewsDTO | undefined =
             await $fetch<MusicBoardReviewsDTO>(apiEndpoint, {
                 method: "get",

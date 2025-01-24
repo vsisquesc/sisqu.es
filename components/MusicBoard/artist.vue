@@ -15,7 +15,14 @@
         >
             {{ artist.name }}
         </div>
-        <nuxt-img class="photo" :src="background.background_large" />
+        <nuxt-img
+            class="photo"
+            :class="{
+                'right-gradient': !left,
+                'left-gradient': left,
+            }"
+            :src="background.background_large"
+        />
     </div>
 </template>
 
@@ -51,5 +58,38 @@ const info: globalThis.Ref<boolean> = ref(false)
 .photo {
     @apply h-full w-3/5 right-0;
     object-fit: cover;
+}
+
+.right-gradient {
+    mask-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: -webkit-gradient(
+        linear,
+        right top,
+        left top,
+        color-stop(0, rgba(0, 0, 0, 1)),
+        color-stop(0.6, rgba(0, 0, 0, 0.8)),
+        color-stop(1, rgba(0, 0, 0, 0))
+    );
+}
+.left-gradient {
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0, rgba(0, 0, 0, 1)),
+        color-stop(0.6, rgba(0, 0, 0, 0.8)),
+        color-stop(1, rgba(0, 0, 0, 0))
+    );
 }
 </style>

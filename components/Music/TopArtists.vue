@@ -33,7 +33,10 @@ const { data, status, error, refresh, clear } = useAsyncData(
 
     async function () {
         const res: NetworkResponse<MusicBoardArtists> =
-            await service_musicBoard_artists.Get()
+            await service_musicBoard_artists.Get({
+                limit: 48,
+                forceBackground: false,
+            })
 
         if (!res.ok) {
             throw Error(res.message)
