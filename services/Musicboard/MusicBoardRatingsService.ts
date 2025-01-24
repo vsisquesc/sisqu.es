@@ -3,8 +3,6 @@ import { MusicBoardService } from "./MusicBoardService"
 
 export class MusicBoardRatingsService extends MusicBoardService {
     override apiEndpoint = "ratings/"
-    private url = "ratings/"
-    private artists_url = "ratings/artists"
 
     protected override transform(
         data: MusicBoardRatingsDTO
@@ -15,12 +13,6 @@ export class MusicBoardRatingsService extends MusicBoardService {
     async Get(
         inParams?: MB_params
     ): Promise<NetworkResponse<MusicBoardRatings>> {
-        return super.GetData(this.url, inParams)
-    }
-
-    async GetArtists(
-        inParams?: MB_params
-    ): Promise<NetworkResponse<MusicBoardRatings>> {
-        return super.GetData(this.artists_url, inParams)
+        return super.GetData("ratings", inParams)
     }
 }

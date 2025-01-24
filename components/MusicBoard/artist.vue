@@ -44,9 +44,8 @@ const info: globalThis.Ref<boolean> = ref(false)
 
 <style lang="postcss" scoped>
 .artist-container {
-    width: 100vw;
     height: 384px;
-    @apply relative flex justify-end items-center;
+    @apply w-full relative flex justify-end items-center;
 }
 
 .photo {

@@ -15,11 +15,12 @@ export default defineEventHandler(async (event) => {
         if (params.order_by == "-rating__rating") {
             params.order_by = "-rating"
         }
+        params.content_type = "artist"
 
         const minRating = params.min_rating
 
-        const data: MusicBoardRatingsDTO | undefined =
-            await $fetch<MusicBoardRatingsDTO>(apiEndpoint, {
+        const data: MusicBoardArtistsDTO | undefined =
+            await $fetch<MusicBoardArtistsDTO>(apiEndpoint, {
                 method: "get",
                 params: params,
             }).catch((err) => {

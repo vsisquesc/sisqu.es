@@ -13,7 +13,7 @@
                     {{ rating.content.title }}
                 </div>
             </div>
-            <div v-if="small" class="justify-center items-center">
+            <div v-if="showReview" class="justify-center items-center">
                 <div class="text">
                     {{ rating.rating }}
                 </div>
@@ -36,9 +36,11 @@ import type { Rating } from "~/entities"
 interface Props {
     rating: Rating
     small?: boolean
+    showReview?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
     small: false,
+    showReview: false,
 })
 
 // ---------- References ----------

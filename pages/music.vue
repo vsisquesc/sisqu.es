@@ -1,6 +1,7 @@
 <template>
     <Music-Top-Artists />
     <Music-Top-Albums />
+    <Music-Highest-Rated-Albums />
     <Music-Recently-Listened />
 </template>
 

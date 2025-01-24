@@ -5,7 +5,7 @@
             <div v-for="(rating, idx) in music_board_data?.results">
                 <MusicBoard-Artist
                     v-if="rating.background.background_original != undefined"
-                    :artist="rating.content.artist"
+                    :artist="rating.content"
                     :background="rating.background"
                     :left="idx % 2 == 0"
                 />
@@ -16,27 +16,24 @@
 
 <script setup lang="ts">
 // ---------- Imports ----------
-import type { MusicBoardRatings } from "~/entities"
-import { MusicBoardRatingsService, MusicBoardReviewsService } from "~/services"
+import type { MusicBoardArtists } from "~/entities"
+import { MusicBoardArtistsService } from "~/services"
 
 // ---------- References ----------
-const music_board_data: globalThis.Ref<MusicBoardRatings | undefined> =
+const music_board_data: globalThis.Ref<MusicBoardArtists | undefined> =
     ref(undefined)
 const next: globalThis.Ref<string> = ref("")
 
 // ---------- Services ----------
-const service_musicBoard_ratings = new MusicBoardRatingsService()
+const service_musicBoard_artists = new MusicBoardArtistsService()
 
 // ---------- Data Fetching ----------
 const { data, status, error, refresh, clear } = useAsyncData(
     "get_musicboard_artists",
 
     async function () {
-        const res: NetworkResponse<MusicBoardRatings> =
-            await service_musicBoard_ratings.GetArtists({
-                order_by: "-rating__rating",
-                min_rating: 4.5,
-            })
+        const res: NetworkResponse<MusicBoardArtists> =
+            await service_musicBoard_artists.Get()
 
         if (!res.ok) {
             throw Error(res.message)
