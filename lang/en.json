@@ -6,6 +6,7 @@
     "music": {
         "artists": "Top Artists",
         "albums": "Top Albums",
-        "recent": "Recently Listened"
+        "recent": "Recently Listened",
+        "highest": "Highest Rated Albums"
     }
 }

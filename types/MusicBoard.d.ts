@@ -18,7 +18,10 @@ type MB_params = {
     min_rating?: number
 }
 
-type MusicBoardDTO = MusicBoardRatingsDTO | MusicBoardReviewsDTO
+type MusicBoardDTO =
+    | MusicBoardRatingsDTO
+    | MusicBoardReviewsDTO
+    | MusicBoardArtistsDTO
 
 type MusicBoardReviewsDTO = {
     next?: string
@@ -29,6 +32,11 @@ type MusicBoardRatingsDTO = {
     next?: string
     previous?: string
     results: RatingDTO[]
+}
+type MusicBoardArtistsDTO = {
+    next?: string
+    previous?: string
+    results: RatingArtistDTO[]
 }
 
 type ReviewDTO = {
@@ -58,6 +66,26 @@ type RatingDTO = {
     review_uid: string
     review_url_slug: string
     content: ContentDTO
+    creator: CreatorDTO
+    created_at: Date
+    listened_at: Date
+    show_listened_at: boolean
+    private: boolean
+    private_locked: boolean
+    like_count: number
+    comment_count: number
+    type: string
+    background: BackgroundDTO
+    comments_privacy: number
+}
+type RatingArtistDTO = {
+    uid: string
+    id: number
+    rating: number
+    first_listen: boolean
+    review_uid: string
+    review_url_slug: string
+    content: ArtistDTO
     creator: CreatorDTO
     created_at: Date
     listened_at: Date

@@ -20,3 +20,4 @@ type DTO =
     | ContentDTO
     | BackgroundDTO
     | ArtistDTO
+    | RatigArtistDTO
