@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
         if (params.order_by == "-rating__rating") {
             params.order_by = "-rating"
         }
+        params.content_type = "album"
 
         const minRating = params.min_rating
 
