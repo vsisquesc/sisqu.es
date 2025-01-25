@@ -1,6 +1,7 @@
 <template>
     <div
-        class="artist-container"
+        v-if="background"
+        class="artist-container w-full"
         :class="{
             'flex-row': !left,
             'flex-row-reverse': left,
@@ -16,13 +17,23 @@
             {{ artist.name }}
         </div>
         <nuxt-img
-            class="photo"
+            class="background"
             :class="{
                 'right-gradient': !left,
                 'left-gradient': left,
             }"
             :src="background.background_large"
         />
+    </div>
+    <div v-else class="artist-container">
+        <nuxt-img class="portrait" :src="artist.picture_large" />
+        <div class="small-info">
+            <div class="h-full w-full flex justify-end items-end">
+                <div class="bg-white px-2 text-black">
+                    {{ artist.name }}
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -34,7 +45,7 @@ import type { Artist, Background, Rating } from "~/entities"
 // ---------- Props ----------
 interface Props {
     artist: Artist
-    background: Background
+    background?: Background
     left?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
@@ -42,8 +53,6 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // ---------- References ----------
-const info: globalThis.Ref<boolean> = ref(false)
-
 // ---------- Variables ----------
 
 // ---------- Methods ----------
@@ -52,12 +61,20 @@ const info: globalThis.Ref<boolean> = ref(false)
 <style lang="postcss" scoped>
 .artist-container {
     height: 384px;
-    @apply w-full relative flex justify-end items-center;
+    @apply relative flex justify-end items-center;
 }
 
-.photo {
+.background {
     @apply h-full w-3/5 right-0;
     object-fit: cover;
+}
+.portrait {
+    @apply h-full;
+    object-fit: cover;
+}
+
+.small-info {
+    @apply absolute w-full h-full flex flex-col  items-start justify-center;
 }
 
 .right-gradient {

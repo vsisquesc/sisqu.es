@@ -2,12 +2,17 @@
     <div class="component-wrapper">
         <div class="title">{{ $t("music.artists") }}</div>
         <div class="reviews">
-            <div v-for="(rating, idx) in music_board_data?.results">
+            <MusicBoard-Artist
+                v-for="(rating, idx) in ArtistWithBG"
+                :artist="rating.content"
+                :background="rating.background"
+                :left="idx % 2 == 0"
+            />
+
+            <div class="grid grid-cols-4">
                 <MusicBoard-Artist
-                    v-if="rating.background.background_original != undefined"
+                    v-for="(rating, idx) in ArtistWithoutBG"
                     :artist="rating.content"
-                    :background="rating.background"
-                    :left="idx % 2 == 0"
                 />
             </div>
         </div>
@@ -16,7 +21,7 @@
 
 <script setup lang="ts">
 // ---------- Imports ----------
-import type { MusicBoardArtists } from "~/entities"
+import type { MusicBoardArtists, RatingArtist } from "~/entities"
 import { MusicBoardArtistsService } from "~/services"
 
 // ---------- References ----------
@@ -36,6 +41,7 @@ const { data, status, error, refresh, clear } = useAsyncData(
             await service_musicBoard_artists.Get({
                 limit: 48,
                 forceBackground: false,
+                order_by: "-rating",
             })
 
         if (!res.ok) {
@@ -46,7 +52,21 @@ const { data, status, error, refresh, clear } = useAsyncData(
         return res.data
     }
 )
-// ---------- Methods ----------
+// ---------- Computed ----------
+const ArtistWithBG: globalThis.ComputedRef<RatingArtist[]> = computed(() => {
+    const output = music_board_data.value?.results
+    return (
+        output?.filter((e) => e.background.background_original != undefined) ??
+        []
+    )
+})
+const ArtistWithoutBG: globalThis.ComputedRef<RatingArtist[]> = computed(() => {
+    const output = music_board_data.value?.results
+    return (
+        output?.filter((e) => e.background.background_original == undefined) ??
+        []
+    )
+})
 </script>
 
 <style lang="postcss" scoped>

@@ -28,6 +28,7 @@ module.exports = {
         Raleway: ["var(--font-raleway)"],
         DMsans: ["var(--font-dm-sans)"],
         Epilogue: ["var(--font-epilogue)"],
+        Ye: ["var(--font-ye)"],
  
       }
     },

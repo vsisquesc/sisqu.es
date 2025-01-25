@@ -7,7 +7,7 @@
 
 <script setup lang="ts"></script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .full {
     @apply h-screen -mt-16;
 }
