@@ -1,6 +1,7 @@
 <template>
     <div class="-mt-16">
         <Photos />
+        <Photos />
     </div>
 </template>
 

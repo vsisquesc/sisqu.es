@@ -16,6 +16,7 @@ type MB_params = {
     private?: boolean
     speedup?: boolean
     min_rating?: number
+    forceBackground?: boolean
 }
 
 type MusicBoardDTO =

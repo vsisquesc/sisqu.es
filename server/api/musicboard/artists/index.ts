@@ -38,22 +38,10 @@ export default defineEventHandler(async (event) => {
         if (minRating != undefined) {
             data.results = data.results.filter((e) => e.rating >= minRating * 2)
         }
-        if (params.forceBackground) {
-            data.results.forEach((e) => {
-                if (Object.keys(e.background).length == 0) {
-                    e.background = new Background({
-                        uid: "",
-                        background_large: e.content.picture_large,
-                        background_small: e.content.picture_small,
-                        background_original: e.content.picture,
-                    })
-                }
-            })
-        } else {
-            data.results = data.results.filter(
-                (e) => Object.keys(e.background).length > 0
-            )
-        }
+
+        // data.results = data.results.filter(
+        //     (e) => Object.keys(e.background).length > 0
+        // )
         data.results = _.uniqBy(data.results, "content.uid")
         return data
     } catch (error) {

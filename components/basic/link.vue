@@ -11,4 +11,4 @@ interface Props {
 const props = defineProps<Props>()
 </script>
 
-<style lang="postcss"></style>
+<style lang="postcss" scoped></style>

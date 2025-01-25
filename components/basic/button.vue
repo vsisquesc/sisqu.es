@@ -6,7 +6,7 @@
 
 <script setup></script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .button {
     @apply p-3 rounded-full cursor-pointer flex items-center justify-center;
 }

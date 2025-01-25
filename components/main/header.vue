@@ -65,7 +65,7 @@ function scrollUp() {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .header-wrapper {
     background-color: var(--color-background);
     @apply fixed flex w-full justify-between px-2 h-16 items-center z-10;

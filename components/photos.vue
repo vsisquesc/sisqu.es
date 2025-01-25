@@ -37,7 +37,6 @@ const images = [
 
 // ---------- Mounted ----------
 onMounted(() => {
-    // const container = document.getElementById("container")
     if (import.meta.client) {
         window.addEventListener("scroll", handleScroll)
     }
@@ -45,6 +44,12 @@ onMounted(() => {
     ImagesContainer.value!.style.height = `${height}vh`
 
     imageData.value = images.map(initImage)
+})
+
+onUnmounted(() => {
+    if (import.meta.client) {
+        window.removeEventListener("scroll", handleScroll)
+    }
 })
 // ---------- Methods ----------
 function handleScroll() {
@@ -134,7 +139,7 @@ function getStyle(img: ImageScroller, idx: number) {
 #container {
     height: 100vh;
     width: 100vw;
-    overflow-x: unset;
+    overflow: clip;
 }
 .image-scroller {
     height: 100vh;
@@ -148,7 +153,8 @@ function getStyle(img: ImageScroller, idx: number) {
     width: 100%;
     height: auto;
     position: relative;
-    @apply object-scale-down;
+    object-fit: scale-down;
+    /* @apply object-scale-down; */
 }
 
 .img {
