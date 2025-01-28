@@ -2,10 +2,7 @@ import { MusicBoard } from "~/entities"
 import { Service } from "../Service"
 
 export class MusicBoardService extends Service<MusicBoard, MusicBoardDTO> {
-    private pageURL =
-        "https://musicboard.app/vsc/reviews?content_type=album&order_by=-created_at"
-
-    endpoint = "https://api.musicboard.app/v2"
+    endpoint = "/api/musicboard"
     apiEndpoint = ""
 
     protected override transform(data: MusicBoardDTO): MusicBoard {
@@ -19,22 +16,27 @@ export class MusicBoardService extends Service<MusicBoard, MusicBoardDTO> {
         speedup: true,
     }
 
-    async GetData(
-        url: string,
-        inParams?: MB_params
-    ): Promise<NetworkResponse<MusicBoard>> {
+    getUrl(): string {
+        return `${this.endpoint}/${this.apiEndpoint}`
+    }
+
+    getParams(inParams?: MB_params): any {
+        const params = { ...this.defaultParams, ...inParams }
+        return {
+            parameters: params,
+        }
+    }
+
+    async GetData(inParams?: MB_params): Promise<NetworkResponse<MusicBoard>> {
         const $api = Service.useApi()
 
-        const endpoint = "/api/musicboard"
         const params = { ...this.defaultParams, ...inParams }
 
         const res: NetworkResponse<MusicBoardDTO> = await $api<MusicBoardDTO>(
-            `${endpoint}/${url}`,
+            `${this.endpoint}/${this.apiEndpoint}`,
             {
                 method: "get",
                 params: {
-                    pageUrl: this.pageURL,
-                    apiEndpoint: `${this.endpoint}/${this.apiEndpoint}`,
                     parameters: params,
                 },
             }

@@ -1,11 +1,13 @@
 import puppeteer from "puppeteer"
 import { MusicBoard } from "~/entities"
 
+const config = useRuntimeConfig()
+
+const MusicBoard_URL = config.MB_BACK + "reviews/"
 export default defineEventHandler(async (event) => {
     try {
         const query = getQuery(event)
-        const pageUrl: string = query.pageUrl as string
-        const apiEndpoint: string = query.apiEndpoint as string
+        const apiEndpoint: string = MusicBoard_URL
         const params: MB_params = JSON.parse(
             query.parameters as string
         ) as MB_params
@@ -22,11 +24,6 @@ export default defineEventHandler(async (event) => {
                 throw Error(err)
             })
 
-        // const data: MusicBoardDTO | undefined = await fetchApiResponse(
-        //     pageUrl,
-        //     apiEndpoint,
-        //     params
-        // )
         if (data == undefined) {
             throw Error("Data is empty")
         }

@@ -1,13 +1,14 @@
 import puppeteer from "puppeteer"
 import { Background, MusicBoard } from "~/entities"
-
 import _ from "lodash"
 
+const config = useRuntimeConfig()
+
+const MusicBoard_URL = config.MB_BACK + "ratings/"
 export default defineEventHandler(async (event) => {
     try {
         const query = getQuery(event)
-        const pageUrl: string = query.pageUrl as string
-        const apiEndpoint: string = query.apiEndpoint as string
+        const apiEndpoint: string = MusicBoard_URL
         const params: MB_params = JSON.parse(
             query.parameters as string
         ) as MB_params
