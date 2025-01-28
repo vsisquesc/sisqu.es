@@ -25,7 +25,7 @@
             :src="background.background_large"
         />
     </div>
-    <div v-else class="artist-container">
+    <div v-else class="artist-container !h-auto">
         <nuxt-img class="portrait" :src="artist.picture_large" />
         <div class="small-info">
             <div class="h-full w-full flex justify-end items-end">
@@ -69,7 +69,7 @@ const props = withDefaults(defineProps<Props>(), {
     object-fit: cover;
 }
 .portrait {
-    @apply h-full;
+    @apply w-full;
     object-fit: cover;
 }
 

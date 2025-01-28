@@ -9,7 +9,7 @@
                 :left="idx % 2 == 0"
             />
 
-            <div class="grid grid-cols-4">
+            <div class="grid grid-cols-4 gap-2 sm:gap-4">
                 <MusicBoard-Artist
                     v-for="(rating, idx) in ArtistWithoutBG"
                     :artist="rating.content"
