@@ -21,37 +21,48 @@
 
 <script setup lang="ts">
 // ---------- Imports ----------
-import type { MusicBoardArtists, RatingArtist } from "~/entities"
+import { MusicBoardArtists, type RatingArtist } from "~/entities"
 import { MusicBoardArtistsService } from "~/services"
 
 // ---------- References ----------
 const music_board_data: globalThis.Ref<MusicBoardArtists | undefined> =
     ref(undefined)
-const next: globalThis.Ref<string> = ref("")
 
 // ---------- Services ----------
 const service_musicBoard_artists = new MusicBoardArtistsService()
 
 // ---------- Data Fetching ----------
-const { data, status, error, refresh, clear } = useAsyncData(
-    "get_musicboard_artists",
+const res = useFetch(service_musicBoard_artists.getUrl(), {
+    query: service_musicBoard_artists.getParams({
+        limit: 48,
+        forceBackground: false,
+        order_by: "-rating",
+    }),
+}).then((res) => {
+    const data: MusicBoardArtistsDTO = res.data.value as MusicBoardArtistsDTO
+    music_board_data.value = new MusicBoardArtists(data)
 
-    async function () {
-        const res: NetworkResponse<MusicBoardArtists> =
-            await service_musicBoard_artists.Get({
-                limit: 48,
-                forceBackground: false,
-                order_by: "-rating",
-            })
+    return data
+})
 
-        if (!res.ok) {
-            throw Error(res.message)
-        }
-        music_board_data.value = res.data
-        next.value = music_board_data.value!.next!
-        return res.data
-    }
-)
+// const { data, status, error, refresh, clear } = useAsyncData(
+//     "get_musicboard_artists",
+
+//     async function () {
+//         const res: NetworkResponse<MusicBoardArtists> =
+//             await service_musicBoard_artists.Get({
+//                 limit: 48,
+//                 forceBackground: false,
+//                 order_by: "-rating",
+//             })
+
+//         if (!res.ok) {
+//             throw Error(res.message)
+//         }
+//         music_board_data.value = res.data
+//         return res.data
+//     }
+// )
 // ---------- Computed ----------
 const ArtistWithBG: globalThis.ComputedRef<RatingArtist[]> = computed(() => {
     const output = music_board_data.value?.results

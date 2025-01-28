@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     devServer: {
         port: 3000,
     },
+    runtimeConfig: {
+        MB_BACK: "https://api.musicboard.app/v2/",
+    },
     compatibilityDate: "2024-04-03",
     devtools: { enabled: true },
     ssr: false,
