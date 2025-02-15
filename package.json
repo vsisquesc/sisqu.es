@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -25,6 +25,7 @@
   "dependencies": {
     "@nuxt/icon": "^1.10.3",
     "@nuxt/image": "^1.9.0",
+    "@nuxtjs/device": "^3.2.4",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "cheerio": "^1.0.0",
     "lodash": "^4.17.21",
