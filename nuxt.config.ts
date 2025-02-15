@@ -31,6 +31,7 @@ export default defineNuxtConfig({
         "@nuxtjs/color-mode",
         "@pinia/nuxt",
         "@nuxt/icon",
+        "@nuxt/image",
         "@nuxtjs/device",
     ],
 
