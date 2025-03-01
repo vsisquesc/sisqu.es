@@ -25,6 +25,7 @@ export default defineNuxtConfig({
 
     plugins: ["~/plugins/eventBus.ts", "~/plugins/api.ts"],
     modules: [
+        "nuxt-qrcode",
         // https://tailwindcss.nuxtjs.org/
         "@nuxtjs/tailwindcss",
         "@nuxtjs/i18n",
