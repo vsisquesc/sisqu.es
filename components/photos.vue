@@ -19,6 +19,14 @@
 
 <script setup lang="ts">
 // ---------- Imports ----------
+
+// ---------- Props ---------
+
+interface Props {
+    images?: string[]
+}
+const props = defineProps<Props>()
+
 // ---------- References ----------
 const imageData: globalThis.Ref<ImageScroller[]> = ref([])
 
@@ -28,7 +36,7 @@ const ImageScroller: globalThis.Ref<HTMLElement | undefined> = ref()
 const currentImageIndex: globalThis.Ref<number> = ref(0)
 
 // ---------- Variables ----------
-const images = [
+const images = props.images ?? [
     "https://espirituracer.com/archivos/2023/01/mitsubishi-fto-1.webp",
     "https://espirituracer.com/archivos/2023/01/mitsubishi-fto-1.webp",
     "https://espirituracer.com/archivos/2023/01/mitsubishi-fto-1.webp",
