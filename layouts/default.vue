@@ -8,10 +8,10 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from "vue-router";
-
-const route = useRoute();
-const isIndexPage = route.path === "/";
+// import { useRoute } from "vue-router";
+//
+// const route = useRoute();
+const isIndexPage = false; // route.path === "/";
 </script>
 
 <style lang="postcss">
