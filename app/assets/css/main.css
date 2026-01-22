@@ -1,0 +1,35 @@
+:root {
+  --font-sans: 'Special Gothic Expanded One', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+  --font-serif: 'Fraunces', serif;
+
+  --color-background: #fff;
+  --color-text: #000;
+  --color-border: #000;
+
+  --border-radius: 10px;
+  --flex-gap: 0.5rem;
+  --vertical-padding: 0.75rem;
+  --horizontal-padding: 0.5rem;
+
+  --fixed-bottom: 1rem;
+  --fixed-right: 1rem;
+  --fixed-left: 1rem;
+  --fixed-top: 1rem;
+}
+
+html,
+body,
+#__nuxt {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: normal;
+}

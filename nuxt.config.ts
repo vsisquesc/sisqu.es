@@ -1,92 +1,94 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    experimental: {
-        payloadExtraction: true,
-    },
-    imports: {
-        dirs: ["types/*.ts"],
-    },
-    devServer: {
-        port: 3000,
-    },
-    runtimeConfig: {
-        MB_BACK: "https://api.musicboard.app/v2/",
-    },
-    compatibilityDate: "2024-04-03",
-    devtools: { enabled: true },
-    ssr: false,
-    css: ["~/assets/css/main.css"],
-    postcss: {
-        plugins: {
-            tailwindcss: {},
-            autoprefixer: {},
-        },
-    },
+  compatibilityDate: '2025-07-15',
+  devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
+  imports: {
+    dirs: ['types/*.ts'],
+  },
 
-    plugins: ["~/plugins/eventBus.ts", "~/plugins/api.ts"],
-    modules: [
-        "nuxt-qrcode",
-        // https://tailwindcss.nuxtjs.org/
-        "@nuxtjs/tailwindcss",
-        "@nuxtjs/i18n",
-        "@nuxtjs/color-mode",
-        "@pinia/nuxt",
-        "@nuxt/icon",
-        "@nuxt/image",
-        "@nuxtjs/device",
+  modules: [
+    '@nuxt/content',
+    '@nuxt/fonts',
+    '@nuxt/icon',
+    '@nuxt/image',
+    '@pinia/nuxt',
+    '@nuxtjs/i18n',
+  ],
+
+  // Configuración de @nuxt/fonts
+fonts: {
+  families: [
+    // Special Gothic Expanded One
+    {
+      name: 'Special Gothic Expanded One',
+      provider: 'google',
+    },
+    // Roboto Mono - Variable font
+    {
+      name: 'Roboto Mono',
+      provider: 'google',
+      weights: [100, 200, 300, 400, 500, 600, 700],
+      styles: ['normal', 'italic'],
+    },
+    // Fraunces - Variable font con ejes personalizados
+    {
+      name: 'Fraunces',
+      provider: 'google',
+      weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+      styles: ['normal', 'italic'],
+    },
+  ],
+},
+
+  i18n: {
+    compilation: {
+      strictMessage: false,
+      // escapeHtml: true,
+    },
+    // SEO recommendations
+    baseUrl: 'localhost',
+    locales: [{ code: 'en', iso: 'en-GB', name: 'English', file: 'en.json' }],
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root', // SEO recommended
+    },
+  },
+  app: {
+    head: {
+      title: 'SISQU.ES',
+      meta: [
+        { charset: 'utf-8' },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1',
+        },
+        {
+          key: 'description',
+          name: 'description',
+          content: 'SISQU.ES',
+        },
+        { name: 'format-detection', content: 'telephone=no' },
+      ],
+    link: [
+      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+      // Carga manual de Fraunces con eje WONK
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,WONK@0..1,9..144,100..900,0..1&display=swap'
+      },
     ],
-
-    i18n: {
-        compilation: {
-            strictMessage: false,
-            // escapeHtml: true,
-        },
-        // SEO recommendations
-        baseUrl: "localhost",
-        locales: [
-            { code: "en", iso: "en-GB", name: "English", file: "en.json" },
-        ],
-        lazy: true,
-        langDir: "lang/",
-        strategy: "prefix_except_default",
-        defaultLocale: "en",
-        detectBrowserLanguage: {
-            useCookie: true,
-            cookieKey: "i18n_redirected",
-            redirectOn: "root", // SEO recommended
-        },
     },
-
-    app: {
-        head: {
-            title: "SISQU.ES",
-            meta: [
-                { charset: "utf-8" },
-                {
-                    name: "viewport",
-                    content: "width=device-width, initial-scale=1",
-                },
-                {
-                    hid: "description",
-                    name: "description",
-                    content: "SISQU.ES",
-                },
-                { name: "format-detection", content: "telephone=no" },
-            ],
-            link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
-        },
-        baseURL: "/",
+    baseURL: '/',
+  },
+  image: {
+    provider: 'ipx',
+    ipx: {
+      // puedes configurar el ancho máximo, calidad, etc.
+      // dir: 'public',
     },
-
-    colorMode: {
-        preference: "system",
-        fallback: "light",
-        hid: "nuxt-color-mode-script",
-        globalName: "__NUXT_COLOR_MODE__",
-        componentName: "ColorScheme",
-        classPrefix: "",
-        classSuffix: "-mode",
-        storage: "localStorage", // or 'sessionStorage' or 'cookie'
-        storageKey: "nuxt-color-mode",
-    },
-})
+  },
+});

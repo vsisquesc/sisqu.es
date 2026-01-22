@@ -1,0 +1,14 @@
+{
+    "links": {
+        "photos": "photos",
+        "photosp5": "photosp5",
+        "music": "music",
+        "flag": "flag"
+    },
+    "music": {
+        "artists": "Top Artists",
+        "albums": "Top Albums",
+        "recent": "Recently Listened",
+        "highest": "Highest Rated Albums"
+    }
+}
