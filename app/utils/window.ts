@@ -1,8 +1,13 @@
-export function createWindow(name: string, href: string): IFrameWindow {
+export function createWindow(
+  name: string,
+  href: string,
+  icon: string,
+): IFrameWindow {
   return {
     title: name,
     minimized: false,
     fullscreen: false,
+    icon: icon,
     posX: 25,
     posY: 10,
     width: 50,

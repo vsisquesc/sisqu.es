@@ -1,12 +1,17 @@
 <template>
   <div class="menu container" ref="menuRef">
     <h1 class="title" ref="titleRef">SISQU.ES</h1>
-    <div class="repos">HOLAA</div>
+    <div class="repos" @click="test">clickme</div>
     <div class="extra">HOLAA</div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { WindowManager } from '~/stores/Queue';
+import { createWindow } from '~/utils/window';
+
+const store = WindowManager();
+
 const { data: repos } = await useAsyncData('repos', () => {
   return queryCollection('repos').order('order', 'ASC').all();
 });
@@ -30,6 +35,10 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('resize', onUpdate);
 });
+
+function test() {
+  store.openWindow(createWindow('test', '/', 'uil:github'));
+}
 </script>
 <style scoped lang="css">
 .title {

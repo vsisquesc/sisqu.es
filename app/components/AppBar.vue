@@ -1,23 +1,39 @@
 <template>
   <div class="social container">
-    <div
+    <div class="apps" v-if="!store.empty()">
+      <div
+        v-for="entry in store.queue"
+        :key="entry.href"
+        :alt="entry.title"
+        class="entry"
+        @pointerdown="openWindow(entry)"
+        :class="{
+          active: store.contains(entry.href),
+          first: store.isFirst(entry.href),
+        }"
+      >
+        <Icon
+          :name="entry.icon"
+          size="var(--icon-size)"
+          style="color: var(--color-text)"
+        />
+      </div>
+    </div>
+    <separator v-if="!store.empty()" />
+    <a
       v-for="entry in social"
       :key="entry.order"
       :href="entry.href"
       :alt="entry.name"
+      target="_blank"
       class="entry"
-      @pointerdown="openWindow(entry)"
-      :class="{
-        active: store.contains(entry.href),
-        first: store.isFirst(entry.href),
-      }"
     >
       <Icon
         :name="entry.iconName"
         size="var(--icon-size)"
         style="color: var(--color-text)"
       />
-    </div>
+    </a>
   </div>
 </template>
 
@@ -31,8 +47,8 @@ const { data: social } = await useAsyncData('social', () => {
   return queryCollection('social').order('order', 'ASC').all();
 });
 
-function openWindow(entry: Social) {
-  store.openWindow(createWindow(entry.name, entry.href));
+function openWindow(entry: IFrameWindow) {
+  store.openWindow(entry);
 }
 </script>
 <style scoped lang="css">
@@ -66,6 +82,12 @@ function openWindow(entry: Social) {
 
     justify-content: space-evenly;
   }
+}
+
+separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
 }
 
 .entry {

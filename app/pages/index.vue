@@ -1,6 +1,6 @@
 <template>
   <Menu />
-  <Social />
+  <AppBar />
   <Minimize v-if="!store.empty() && !store.hasFullScreen()" />
   <Window
     v-for="window in store.queue"

@@ -18,6 +18,12 @@
       @dblclick="windowAction('fullscreen')"
     >
       <div class="title">
+        <Icon
+          :name="windowData.icon"
+          size="var(--icon-size)"
+          style="color: var(--color-text)"
+          :alt="windowData.title"
+        />
         {{ windowData.title }}
       </div>
       <div class="icons">
@@ -38,18 +44,17 @@
         fullscreen: windowData.fullscreen,
       }"
     >
-      {{ windowData }}
-      <!-- <iframe :src="windowData.href" /> -->
-      <Icon
-        v-if="!windowData.fullscreen"
-        class="resize"
-        name="pajamas:resize"
-        size="var(--icon-size)"
-        style="color: var(--color-text)"
-        :alt="$t(`window.resize`)"
-        @pointerdown.stop="startResize"
-      />
+      <iframe class="iframe" :src="windowData.href" />
     </div>
+    <Icon
+      v-if="!windowData.fullscreen"
+      class="resize"
+      name="pajamas:resize"
+      size="var(--icon-size)"
+      style="color: var(--color-text)"
+      :alt="$t(`window.resize`)"
+      @pointerdown.stop="startResize"
+    />
   </div>
 </template>
 <script setup lang="ts">
@@ -125,6 +130,7 @@ function startDrag(e: PointerEvent) {
 
   const target = e.target as HTMLElement;
   if (target.closest('.icons')) return;
+
   e.preventDefault();
 
   topbarRef.value.setPointerCapture(e.pointerId);
@@ -229,7 +235,8 @@ function stopResize(e?: PointerEvent) {
 
 <style scoped lang="css">
 .window {
-  display: block;
+  display: flex;
+  flex-direction: column;
 
   font-family: var(--font-mono);
 }
@@ -241,6 +248,12 @@ function stopResize(e?: PointerEvent) {
   padding: var(--vertical-padding) var(--horizontal-padding);
 }
 
+.content {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
 .topbar {
   touch-action: none;
   display: flex;
@@ -249,6 +262,10 @@ function stopResize(e?: PointerEvent) {
   justify-content: space-between;
   cursor: grab;
 }
+.topbar .title {
+  display: flex;
+  align-items: center;
+}
 .topbar .icons {
   display: flex;
   align-items: center;
@@ -256,12 +273,18 @@ function stopResize(e?: PointerEvent) {
 .topbar .icons > * {
   cursor: pointer;
 }
+
+.iframe {
+  width: 100%;
+  height: 100%;
+}
+
 .content .resize {
   touch-action: none;
   cursor: move;
   position: absolute;
-  bottom: var(--fixed-bottom);
-  right: var(--fixed-right);
+  bottom: 2px;
+  right: 2px;
 }
 </style>
 
@@ -281,6 +304,10 @@ function stopResize(e?: PointerEvent) {
   border: none;
   border-radius: 0px;
   padding: 0px;
+}
+.content.fullscreen {
+  width: 100%;
+  height: 100% !important;
 }
 .topbar.fullscreen {
   background-color: var(--color-border);

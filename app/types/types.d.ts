@@ -6,7 +6,7 @@ type Repo = {
   technologies: Array<string>;
 };
 
-type Social = {
+type App = {
   order: number;
   name: string;
   href: string;
@@ -18,6 +18,7 @@ type IFrameWindow = {
   title: string;
   minimized: boolean;
   fullscreen: boolean;
+  icon: string;
   // size and pos
   posX: number;
   posY: number;
