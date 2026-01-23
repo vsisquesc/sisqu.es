@@ -1,11 +1,12 @@
 <template>
   <div class="minimize container">
     <Icon
-      @mousedown="toggleWindows"
+      @pointerdown="toggleWindows"
       class="entry"
       name="mdi:eye"
       size="var(--icon-size)"
       style="color: var(--color-text)"
+      :alt="$t(`window.minimizeAll`)"
     />
   </div>
 </template>

@@ -14,7 +14,9 @@
     "window": {
         "globe": "open on a new tab",
         "minimize": "minimize",
+        "minimizeAll": "minimize all windows",
         "fullscreen": "fullscreen",
-        "close": "close"
+        "close": "close",
+        "resize": "resize"
     }
 }

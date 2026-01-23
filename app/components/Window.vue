@@ -7,7 +7,7 @@
       fullscreen: windowData.fullscreen,
       minimized: windowData.minimized,
     }"
-    @mousedown="startDrag"
+    @pointerdown="startDrag"
   >
     <div
       class="topbar"
@@ -27,7 +27,7 @@
           size="var(--icon-size)"
           style="color: var(--color-text)"
           :alt="$t(`window.${iconName}`)"
-          @mousedown="windowAction(iconName)"
+          @pointerdown="windowAction(iconName)"
         />
       </div>
     </div>
@@ -46,7 +46,7 @@
         size="var(--icon-size)"
         style="color: var(--color-text)"
         :alt="$t(`window.resize`)"
-        @mousedown.stop="startResize"
+        @pointerdown.stop="startResize"
       />
     </div>
   </div>
@@ -116,9 +116,13 @@ const dragOffset: globalThis.Ref<{ x: number; y: number }> = ref({
   y: 0,
 });
 
-function startDrag(e: MouseEvent) {
+function startDrag(e: PointerEvent) {
   goUp();
   if (props.windowData.fullscreen || !topbarRef.value) return; // no arrastrar si está fullscreen
+
+  e.preventDefault();
+
+  topbarRef.value.setPointerCapture(e.pointerId);
   isDragging.value = true;
 
   const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
@@ -126,11 +130,11 @@ function startDrag(e: MouseEvent) {
   dragOffset.value.x = e.clientX - rect.left;
   dragOffset.value.y = e.clientY - rect.top;
 
-  document.addEventListener('mousemove', onDrag);
-  document.addEventListener('mouseup', stopDrag);
+  document.addEventListener('pointermove', onDrag);
+  document.addEventListener('pointerup', stopDrag);
 }
 
-function onDrag(e: MouseEvent) {
+function onDrag(e: PointerEvent) {
   if (!isDragging.value) return;
 
   // 1º Se calcula la nueva posición en función de la posición del raton y la
@@ -152,10 +156,15 @@ function onDrag(e: MouseEvent) {
   );
 }
 
-function stopDrag() {
+function stopDrag(e?: PointerEvent) {
   isDragging.value = false;
-  document.removeEventListener('mousemove', onDrag);
-  document.removeEventListener('mouseup', stopDrag);
+  document.removeEventListener('pointermove', onDrag);
+  document.removeEventListener('pointerup', stopDrag);
+  if (e && topbarRef.value) {
+    try {
+      topbarRef.value.releasePointerCapture(e.pointerId);
+    } catch {}
+  }
 }
 
 // ---=== WINDOW RESIZE ===---
@@ -165,9 +174,13 @@ const resizeOffset: globalThis.Ref<{ x: number; y: number }> = ref({
   y: 0,
 });
 
-function startResize(e: MouseEvent) {
+function startResize(e: PointerEvent) {
   goUp();
   if (props.windowData.fullscreen || !windowRef.value) return; // no arrastrar si está fullscreen
+  e.preventDefault();
+
+  windowRef.value.setPointerCapture(e.pointerId);
+
   isResizing.value = true;
 
   // Distancia entre punto de agarre y borde inferior derecho
@@ -175,11 +188,11 @@ function startResize(e: MouseEvent) {
   resizeOffset.value.x = rect.right - e.clientX;
   resizeOffset.value.y = rect.bottom - e.clientY;
 
-  document.addEventListener('mousemove', onResize);
-  document.addEventListener('mouseup', stopResize);
+  document.addEventListener('pointermove', onResize);
+  document.addEventListener('pointerup', stopResize);
 }
 
-function onResize(e: MouseEvent) {
+function onResize(e: PointerEvent) {
   if (!isResizing.value) return;
 
   const rect = (windowRef.value as HTMLElement).getBoundingClientRect();
@@ -197,10 +210,15 @@ function onResize(e: MouseEvent) {
   if (props.windowData.height < 40) props.windowData.height = 40;
 }
 
-function stopResize() {
+function stopResize(e?: PointerEvent) {
   isResizing.value = false;
-  document.removeEventListener('mousemove', onResize);
-  document.removeEventListener('mouseup', stopResize);
+  document.removeEventListener('pointermove', onResize);
+  document.removeEventListener('pointerup', stopResize);
+  if (e && topbarRef.value) {
+    try {
+      topbarRef.value.releasePointerCapture(e.pointerId);
+    } catch {}
+  }
 }
 </script>
 
@@ -219,6 +237,7 @@ function stopResize() {
 }
 
 .topbar {
+  touch-action: none;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -233,6 +252,7 @@ function stopResize() {
   cursor: pointer;
 }
 .content .resize {
+  touch-action: none;
   cursor: move;
   position: absolute;
   bottom: var(--fixed-bottom);

@@ -6,7 +6,7 @@
       :href="entry.href"
       :alt="entry.name"
       class="entry"
-      @mousedown="openWindow(entry)"
+      @pointerdown="openWindow(entry)"
       :class="{
         active: store.contains(entry.href),
         first: store.isFirst(entry.href),
