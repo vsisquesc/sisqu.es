@@ -7,7 +7,6 @@
       fullscreen: windowData.fullscreen,
       minimized: windowData.minimized,
     }"
-    @pointerdown="startDrag"
   >
     <div
       class="topbar"
@@ -15,6 +14,7 @@
         fullscreen: windowData.fullscreen,
       }"
       ref="topbarRef"
+      @pointerdown="startDrag"
       @dblclick="windowAction('fullscreen')"
     >
       <div class="title">
@@ -23,11 +23,12 @@
       <div class="icons">
         <Icon
           v-for="iconName in topbarIcons"
+          :key="iconName"
           :name="`mdi:${iconName}`"
           size="var(--icon-size)"
           style="color: var(--color-text)"
           :alt="$t(`window.${iconName}`)"
-          @pointerdown="windowAction(iconName)"
+          @pointerup.stop="windowAction(iconName)"
         />
       </div>
     </div>
@@ -91,6 +92,8 @@ const topbarIcons: Array<WindowAction> = [
 ];
 
 function windowAction(action: WindowAction) {
+  stopDrag();
+
   switch (action) {
     case 'globe':
       window.open(props.windowData.href, '_blank');
@@ -120,6 +123,8 @@ function startDrag(e: PointerEvent) {
   goUp();
   if (props.windowData.fullscreen || !topbarRef.value) return; // no arrastrar si está fullscreen
 
+  const target = e.target as HTMLElement;
+  if (target.closest('.icons')) return;
   e.preventDefault();
 
   topbarRef.value.setPointerCapture(e.pointerId);
