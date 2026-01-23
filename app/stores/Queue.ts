@@ -78,6 +78,9 @@ export const WindowManager = defineStore(`windowManager`, () => {
   function empty(): boolean {
     return queue.value.length === 0;
   }
+  function hasFullScreen(): boolean {
+    return queue.value.some((e) => e.fullscreen);
+  }
 
   return {
     queue,
@@ -93,5 +96,6 @@ export const WindowManager = defineStore(`windowManager`, () => {
     empty,
     isMinimized,
     isFirst,
+    hasFullScreen,
   };
 });

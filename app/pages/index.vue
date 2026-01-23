@@ -1,7 +1,7 @@
 <template>
   <Menu />
   <Social />
-  <Minimize v-if="!store.empty()" />
+  <Minimize v-if="!store.empty() && !store.hasFullScreen()" />
   <Window
     v-for="window in store.queue"
     :key="window.href"
