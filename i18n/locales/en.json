@@ -10,5 +10,11 @@
         "albums": "Top Albums",
         "recent": "Recently Listened",
         "highest": "Highest Rated Albums"
+    },
+    "window": {
+        "globe": "open on a new tab",
+        "minimize": "minimize",
+        "fullscreen": "fullscreen",
+        "close": "close"
     }
 }

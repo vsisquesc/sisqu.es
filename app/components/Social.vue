@@ -1,25 +1,39 @@
 <template>
-  <div class="social">
-    <a
+  <div class="social container">
+    <div
       v-for="entry in social"
       :key="entry.order"
       :href="entry.href"
       :alt="entry.name"
       class="entry"
+      @mousedown="openWindow(entry)"
+      :class="{
+        active: store.contains(entry.href),
+        first: store.isFirst(entry.href),
+      }"
     >
       <Icon
         :name="entry.iconName"
-        size="1.5rem"
+        size="var(--icon-size)"
         style="color: var(--color-text)"
       />
-    </a>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { WindowManager } from '~/stores/Queue';
+import { createWindow } from '~/utils/window';
+
+const store = WindowManager();
+
 const { data: social } = await useAsyncData('social', () => {
   return queryCollection('social').order('order', 'ASC').all();
 });
+
+function openWindow(entry: Social) {
+  store.openWindow(createWindow(entry.name, entry.href));
+}
 </script>
 <style scoped lang="css">
 .social {
@@ -36,12 +50,8 @@ const { data: social } = await useAsyncData('social', () => {
 
 .social {
   display: flex;
-  gap: var(--flex-gap);
-  padding: var(--vertical-padding) var(--horizontal-padding);
   justify-content: center;
   align-items: center;
-  background-color: var(--color-background);
-  border-radius: var(--border-radius);
 }
 
 @media (max-width: 768px) {
@@ -63,5 +73,29 @@ const { data: social } = await useAsyncData('social', () => {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
+}
+
+.entry.active::after {
+  position: absolute;
+  content: '';
+  top: -2px;
+  right: -2px;
+  height: 8px;
+  width: 8px;
+  background-color: var(--color-text);
+  border: 2px solid var(--color-background);
+  border-radius: var(--border-radius);
+}
+.entry.first::after {
+  position: absolute;
+  content: '';
+  top: -2px;
+  right: -2px;
+  height: 8px;
+  width: 8px;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-text);
+  border-radius: var(--border-radius);
 }
 </style>

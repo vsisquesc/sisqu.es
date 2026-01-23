@@ -1,5 +1,5 @@
 <template>
-  <div class="menu" ref="menuRef">
+  <div class="menu container" ref="menuRef">
     <h1 class="title" ref="titleRef">SISQU.ES</h1>
     <div class="repos">HOLAA</div>
     <div class="extra">HOLAA</div>
@@ -26,6 +26,10 @@ onMounted(() => {
   onUpdate();
   window.addEventListener('resize', onUpdate);
 });
+
+onUnmounted(() => {
+  window.removeEventListener('resize', onUpdate);
+});
 </script>
 <style scoped lang="css">
 .title {
@@ -50,15 +54,12 @@ onMounted(() => {
 
 .menu {
   display: flex;
-  gap: var(--flex-gap);
-  /* padding: var(--vertical-padding) var(--horizontal-padding); */
+  padding: 0 0;
 
   /*   
   justify-content: space-around;
   align-items: center; 
   */
-  background-color: var(--color-background);
-  border-radius: var(--border-radius);
 }
 
 @media (max-width: 768px) {
