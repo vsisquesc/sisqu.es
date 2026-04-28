@@ -19,7 +19,7 @@
         />
       </div>
     </div>
-    <separator v-if="!store.empty()" />
+    <div class="separator" v-if="!store.empty()" />
     <a
       v-for="entry in social"
       :key="entry.order"
@@ -84,7 +84,7 @@ function openWindow(entry: IFrameWindow) {
   }
 }
 
-separator {
+.separator {
   width: 100%;
   height: 1px;
   background-color: var(--color-border);

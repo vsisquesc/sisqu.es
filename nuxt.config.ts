@@ -17,29 +17,34 @@ export default defineNuxtConfig({
   ],
 
   // Configuración de @nuxt/fonts
-fonts: {
-  families: [
-    // Special Gothic Expanded One
-    {
-      name: 'Special Gothic Expanded One',
-      provider: 'google',
-    },
-    // Roboto Mono - Variable font
-    {
-      name: 'Roboto Mono',
-      provider: 'google',
-      weights: [100, 200, 300, 400, 500, 600, 700],
-      styles: ['normal', 'italic'],
-    },
-    // Fraunces - Variable font con ejes personalizados
-    {
-      name: 'Fraunces',
-      provider: 'google',
-      weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-      styles: ['normal', 'italic'],
-    },
-  ],
-},
+  fonts: {
+    families: [
+      // Special Gothic Expanded One
+      {
+        name: 'Special Gothic Expanded One',
+        provider: 'google',
+      },
+      // Roboto Mono - Variable font
+      {
+        name: 'Roboto Mono',
+        provider: 'google',
+        weights: [100, 200, 300, 400, 500, 600, 700],
+        styles: ['normal', 'italic'],
+      },
+      // Fraunces - Variable font con ejes personalizados
+      {
+        name: 'Fraunces',
+        provider: 'google',
+        weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+        styles: ['normal', 'italic'],
+      },
+      // Univers
+      {
+        name: 'Univers',
+        provider: 'microsoft',
+      },
+    ],
+  },
 
   i18n: {
     compilation: {
@@ -73,14 +78,14 @@ fonts: {
         },
         { name: 'format-detection', content: 'telephone=no' },
       ],
-    link: [
-      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-      // Carga manual de Fraunces con eje WONK
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,WONK@0..1,9..144,100..900,0..1&display=swap'
-      },
-    ],
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        // Carga manual de Fraunces con eje WONK
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,WONK@0..1,9..144,100..900,0..1&display=swap',
+        },
+      ],
     },
     baseURL: '/',
   },

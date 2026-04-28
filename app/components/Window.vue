@@ -250,7 +250,7 @@ function stopResize(e?: PointerEvent) {
 
 .content {
   flex: 1;
-  overflow: auto;
+  /* overflow: auto; */
   min-height: 0;
 }
 

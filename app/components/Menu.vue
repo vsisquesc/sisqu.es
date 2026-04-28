@@ -1,7 +1,8 @@
 <template>
   <div class="menu container" ref="menuRef">
-    <h1 class="title" ref="titleRef">SISQU.ES</h1>
-    <div class="repos" @click="test">clickme</div>
+    <h1 class="title" ref="titleRef">SISQU.ES</h1> 
+    <div class="repos" @click="fiatText">fiatText</div>
+    <div class="repos" @click="test">test</div>
     <div class="extra">HOLAA</div>
   </div>
 </template>
@@ -37,7 +38,12 @@ onUnmounted(() => {
 });
 
 function test() {
+  // TODO elegir otros iuconos
   store.openWindow(createWindow('test', '/', 'uil:github'));
+}
+function fiatText() {
+  // TODO elegir otros iuconos
+  store.openWindow(createWindow('fiatText', '/fiatText', 'uil:github'));
 }
 </script>
 <style scoped lang="css">

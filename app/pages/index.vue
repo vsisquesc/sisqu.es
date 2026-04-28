@@ -10,6 +10,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'desktop',
+})
+
 import { WindowManager } from '~/stores/Queue';
 
 const store = WindowManager();
